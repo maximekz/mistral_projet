@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <title>MoovieFinder</title>
+</head>
+<body>
+    <div class="container">
+        <header class="top-bar">
+            <div class="mooviefinder">
+                <span class="moovie">MOOVIE</span>
+                <span>FINDER</span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="chat-screen">
+                <div class="response-box">
+                    <p>{{ response_text }}</p>
+                </div>
+                <div class="recommendations">
+                    <h2>Films recommandés</h2>
+                    <ul>
+                        {% for movie in recommended_movies %}
+                        <li><a href="{{ url_for('movie_info', movie_title=movie) }}">{{ movie }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <form method="POST" action="/generate" class="prompt-form">
+                <input type="text" name="prompt" placeholder="Entrez votre réponse ici" required>
+                <button type="submit" class="submit-button">
+                    Valider
+                </button>
+            </form>
+        </footer>
+    </div>
+</body>
+</html>

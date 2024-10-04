@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <title>{{ movie_info['Title'] }}</title>
+</head>
+<body>
+    <h1>{{ movie_info['Title'] }}</h1>
+    <p><strong>Année : </strong>{{ movie_info['Year'] }}</p>
+    <p><strong>Note IMDb : </strong>{{ movie_info['IMDb Rating'] }}</p>
+    <p><strong>Résumé : </strong>{{ movie_info['Plot'] }}</p>
+    <p><strong>Résumé de Mistral : </strong>{{ summary }}</p>
+
+    <h2>Recommandations similaires</h2>
+    <p>{{ recommendations }}</p>
+
+    <a href="/">Retourner à l'accueil</a>
+</body>
+</html>
